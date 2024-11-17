@@ -1,6 +1,6 @@
 // Importing necessary modules and packages
 const express = require("express");
-const app = express();
+const functions = require("firebase-functions"); // Firebase Functions
 const database = require("./config/database");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
@@ -11,15 +11,15 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger-output.json'); 
 const router = require("./routes/routes");
 
-// Setting up port number
-const PORT = process.env.PORT || 4000;
-
 // Loading environment variables from .env file
 dotenv.config();
 
+// Initialize express app
+const app = express();
+
 // Connecting to database
 database.connect();
- 
+
 // Middlewares
 app.use(express.json());
 app.use(cookieParser());
@@ -39,12 +39,11 @@ app.use(
 // Connecting to cloudinary
 cloudinaryConnect();
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile)); // Serve Swagger UI at /api-docs
+// Serve Swagger UI at /api-docs
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 // Setting up routes
 app.use("/api/v1", router);
-
-
 
 // Testing the server
 app.get("/", (req, res) => {
@@ -54,9 +53,5 @@ app.get("/", (req, res) => {
 	});
 });
 
-// Listening to the server
-app.listen(PORT, () => {
-	console.log(`App is listening at ${PORT}`);
-});
-
-// End of code.
+// Export the app as a Firebase Cloud Function
+exports.edTech = functions.https.onRequest(app);

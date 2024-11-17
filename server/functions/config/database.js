@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/Edtech'; // Fallback if env variable is missing
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://krrishgulia32:KrhrFMxr9yMDaB9s@cluster0.otywm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Fallback if env variable is missing
 
 exports.connect = () => {
 	mongoose

@@ -1,14 +1,14 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Your API",
-    "description": "API Documentation for Your Application",
+    "title": "EdTech API",
+    "description": "API Documentation for EdTech Application",
     "version": "1.0.0"
   },
-  "host": "localhost:4000/api/v1",
-  "basePath": "/",
+  "host": "edtech-frano76ziq-uc.a.run.app",
+  "basePath": "/api/v1",
   "schemes": [
-    "http"
+    "https"
   ],
   "securityDefinitions": {
     "bearerAuth": {
@@ -1313,6 +1313,803 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Category": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "description": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "courses": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Array"
+                }
+              }
+            },
+            "_id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "__v": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              }
+            }
+          }
+        },
+        "required": {
+          "type": "array",
+          "example": [
+            "name"
+          ],
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Course": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "courseName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "courseDescription": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "instructor": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "whatYouWillLearn": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "courseContent": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Array"
+                }
+              }
+            },
+            "ratingAndReviews": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Array"
+                }
+              }
+            },
+            "price": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              }
+            },
+            "thumbnail": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "tag": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Array"
+                }
+              }
+            },
+            "category": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "studentsEnroled": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Array"
+                }
+              }
+            },
+            "instructions": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Array"
+                }
+              }
+            },
+            "status": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "createdAt": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Date"
+                }
+              }
+            },
+            "_id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "__v": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              }
+            }
+          }
+        },
+        "required": {
+          "type": "array",
+          "example": [
+            "instructor",
+            "tag"
+          ],
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "CourseProgress": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "courseID": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "userId": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "completedVideos": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Array"
+                }
+              }
+            },
+            "_id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "__v": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              }
+            }
+          }
+        },
+        "required": {
+          "type": "array",
+          "example": [],
+          "items": {}
+        }
+      }
+    },
+    "OTP": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "otp": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "createdAt": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Date"
+                }
+              }
+            },
+            "_id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "__v": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              }
+            }
+          }
+        },
+        "required": {
+          "type": "array",
+          "example": [
+            "email",
+            "otp"
+          ],
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Profile": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "gender": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "dateOfBirth": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "about": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "contactNumber": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              }
+            },
+            "_id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "__v": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              }
+            }
+          }
+        },
+        "required": {
+          "type": "array",
+          "example": [],
+          "items": {}
+        }
+      }
+    },
+    "RatingandReview": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "user": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "rating": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              }
+            },
+            "review": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "course": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "_id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "__v": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              }
+            }
+          }
+        },
+        "required": {
+          "type": "array",
+          "example": [
+            "user",
+            "rating",
+            "review",
+            "course"
+          ],
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Section": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "sectionName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "subSection": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Array"
+                }
+              }
+            },
+            "_id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "__v": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              }
+            }
+          }
+        },
+        "required": {
+          "type": "array",
+          "example": [],
+          "items": {}
+        }
+      }
+    },
+    "Subsection": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "timeDuration": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "description": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "videoUrl": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "_id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "__v": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              }
+            }
+          }
+        },
+        "required": {
+          "type": "array",
+          "example": [],
+          "items": {}
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "lastName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "email": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "password": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "accountType": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "active": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Boolean"
+                }
+              }
+            },
+            "approved": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Boolean"
+                }
+              }
+            },
+            "additionalDetails": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "courses": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Array"
+                }
+              }
+            },
+            "token": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "resetPasswordExpires": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Date"
+                }
+              }
+            },
+            "image": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "String"
+                }
+              }
+            },
+            "courseProgress": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Array"
+                }
+              }
+            },
+            "_id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ObjectId"
+                }
+              }
+            },
+            "createdAt": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Date"
+                }
+              }
+            },
+            "updatedAt": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Date"
+                }
+              }
+            },
+            "__v": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              }
+            }
+          }
+        },
+        "required": {
+          "type": "array",
+          "example": [
+            "firstName",
+            "lastName",
+            "email",
+            "password",
+            "accountType",
+            "additionalDetails"
+          ],
+          "items": {
+            "type": "string"
           }
         }
       }

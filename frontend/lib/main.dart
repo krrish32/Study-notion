@@ -1,13 +1,12 @@
+import 'package:edtec/ApiClient/endpoints.dart';
 import 'package:edtec/res/app_colors.dart';
 import 'package:edtec/screens/LoginScreen/View/login_screen.dart';
-import 'package:edtec/screens/MyProfileScreen/View/my_profile_screen.dart';
-import 'package:edtec/screens/SignupScreen/View/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-
-import 'screens/AccountDetailScreen/View/account_details_screen.dart';
+import 'ApiClient/api_client.dart';
 
 void main() {
+  ApiClient().initialize(ApiEndpoints.baseUrl, token: 'initial_token');
   runApp(const MyApp());
 }
 

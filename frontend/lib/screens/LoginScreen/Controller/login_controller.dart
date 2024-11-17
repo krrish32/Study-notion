@@ -1,11 +1,17 @@
+import 'package:edtec/ApiClient/Apis/auth.dart';
+import 'package:edtec/ApiClient/Models/RequestModel/LoginRequestModel.dart';
+import 'package:edtec/utils/logger.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
   // Controllers for form fields
   final emailController = TextEditingController();
+  var emailValue = "".obs;
+  var password = "".obs;
   final passwordController = TextEditingController();
   var selectedRole = 'instructor'.obs;
+  AuthRepository authRepository = AuthRepository();
 
   // Key for Form widget
   final formKey = GlobalKey<FormState>();
@@ -20,6 +26,7 @@ class LoginController extends GetxController {
     } else if (!GetUtils.isEmail(value)) {
       return "Please enter a valid email";
     }
+    emailValue.value = value;
     return null;
   }
 
@@ -30,6 +37,7 @@ class LoginController extends GetxController {
     } else if (value.length < 6) {
       return "Password must be at least 6 characters long";
     }
+    password.value = value;
     return null;
   }
 
@@ -39,9 +47,16 @@ class LoginController extends GetxController {
   }
 
   // Method to validate and submit the form
-  void login() {
+  Future <void> login() async{
     if (formKey.currentState!.validate()) {
-      // If all validations pass, perform the login operation
+      try{
+        LoginRequestModel loginRequestModel = LoginRequestModel(email: emailValue.value, password: password.value);
+        var response = await authRepository.login(loginRequestModel);
+        printLog("Login response $response");
+      }
+      catch(error){
+        printLog(error);
+      }
       Get.snackbar(
         "Success",
         "Logged in successfully!",
